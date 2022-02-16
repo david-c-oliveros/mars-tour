@@ -12,7 +12,7 @@ function SingleImage(props)
     const imgIndex = props.images.findIndex(el => el.id == id)
 
     const getImage = async () => {
-        const URL = `http://localhost:9000/photos/${ id }`
+        const URL = `${ process.env.REACT_APP_BACKEND_URL }/${ id }`
 
         const res  = await fetch(URL)
         const data = await res.json()

@@ -44,7 +44,8 @@ function Images(props)
     })
 
     const saveInBackend = async (data) => {
-        const URL = 'http://localhost:9000/photos/'
+        const URL = process.env.REACT_APP_BACKEND_URL
+        console.log('saving in backend at', URL)
         const options = {
             method: 'POST',
             body: JSON.stringify(data),
@@ -55,7 +56,6 @@ function Images(props)
 
         try {
             await fetch(URL, options)
-            console.log('saved', options.body)
         } catch(err) {
             console.log(err)
         }
@@ -64,14 +64,11 @@ function Images(props)
     // Tries to make a fetch call for the most recent images
     // If none are returned, it makes the call again but with the previous date
     const retreiveRecentImages = async (date, limiter) => {
-        console.log(date)
         const dateString = date.toISOString().substring(0, 10)
         const data = await handleFetch(dateString)
-        console.log(data)
 
         if (data === -1)
         {
-            console.log('bad fetch request')
             props.setImages(testData.photos)
             return
         }
@@ -90,7 +87,6 @@ function Images(props)
     }
 
     useEffect(() => {
-        console.log(craftName)
         props.setCraftName(craftName)
         let date
         if (craft.active)
