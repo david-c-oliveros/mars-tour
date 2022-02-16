@@ -105,7 +105,7 @@ function Images(props)
         else
             retreiveRecentImages(date, 0)
 
-    }, [craft.active, craft.missionEnd, craftName, props, retreiveRecentImages])
+    }, [craft.active, craft.missionEnd, craftName, props])
 
     if (props.images.length === 0)
         return <p>Loading images ...</p>

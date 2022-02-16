@@ -20,7 +20,7 @@ function SingleImage(props)
 
     useEffect(() => {
         getImage()
-    }, [getImage])
+    }, [])
 
     return (
         <div className='single-image-page'>
