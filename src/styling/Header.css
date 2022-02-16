@@ -5,3 +5,8 @@ header {
     text-align: center;
     justify-self: start;
 }
+
+.header-title {
+    text-decoration: none;
+    color: white;
+}

@@ -5,7 +5,7 @@ function Header()
 {
     return (
         <header>
-            <Link to='/'>
+            <Link className='header-title' to='/'>
                 <h1>Tour Mars</h1>
             </Link>
         </header>
