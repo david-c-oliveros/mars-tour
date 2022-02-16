@@ -35,7 +35,7 @@ function Images(props)
         return (
             <div key={ image.id }>
                 <Link to={ `/mars-images/${ image.id }`}>
-                    <img className='image' src={ image.img_src } alt='mars-image'/>
+                    <img className='image' src={ image.img_src } alt='mars'/>
                 </Link>
                 <p className='camera-name'>{ image.camera.full_name }</p>
             </div>

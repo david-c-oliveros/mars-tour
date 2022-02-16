@@ -26,7 +26,7 @@ function SingleImage(props)
         <div className='single-image-page'>
             <Header />
             <div className='single-image-page-content'>
-                <img className='image-show' src={ image && image.img_src } alt='mars-image'/>
+                <img className='image-show' src={ image && image.img_src } alt='mars'/>
                 <div className='description'>
                     <p>Date Taken - { props.earthDate && props.earthDate.toDateString() }</p>
                     <p>Camera - { image && image.camera.full_name }</p>
