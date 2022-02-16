@@ -9,8 +9,6 @@ function SingleImage(props)
     const [image, setImage] = useState(null)
     const { id } = useParams()
 
-    const imgIndex = props.images.findIndex(el => el.id == id)
-
     const getImage = async () => {
         const URL = `${ process.env.REACT_APP_BACKEND_URL }/${ id }`
 
@@ -22,13 +20,13 @@ function SingleImage(props)
 
     useEffect(() => {
         getImage()
-    }, [])
+    }, [getImage])
 
     return (
         <div className='single-image-page'>
             <Header />
             <div className='single-image-page-content'>
-                <img className='image-show' src={ image && image.img_src } />
+                <img className='image-show' src={ image && image.img_src } alt='mars-image'/>
                 <div className='description'>
                     <p>Date Taken - { props.earthDate && props.earthDate.toDateString() }</p>
                     <p>Camera - { image && image.camera.full_name }</p>

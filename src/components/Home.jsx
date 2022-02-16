@@ -13,19 +13,19 @@ function Home()
                     <Link className="thumbnail" to='/mars-images?craft=spirit'>
                         <div>
                             <div className='title'>Spirit</div>
-                            <img className='square-img' src='/res/spirit.jpg' />
+                            <img className='square-img' src='/res/spirit.jpg' alt='/res/spirit.jpg'/>
                         </div>
                     </Link>
                     <Link className='thumbnail' to='/mars-images?craft=opportunity'>
                         <div>
                             <div className='title'>Opportunity</div>
-                            <img className='square-img' src='/res/opportunity.jpg' />
+                            <img className='square-img' src='/res/opportunity.jpg' alt='/res/opportunity'/>
                         </div>
                     </Link>
                     <Link className='thumbnail' to='/mars-images?craft=curiosity'>
                         <div>
                             <div className='title'>Curiosity</div>
-                            <img className='square-img' src='/res/curiosity.jpg' />
+                            <img className='square-img' src='/res/curiosity.jpg' alt='/res/curiosity'/>
                         </div>
                     </Link>
                 </div>

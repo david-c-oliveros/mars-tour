@@ -10,10 +10,9 @@ const TEST = false
 
 function Images(props)
 {
-    const [searchParams, setSearchParams] = useSearchParams()
+    const [searchParams] = useSearchParams()
     const craftName = searchParams.get('craft') || 'curiosity'
-    const [craft, setCraft] = useState(props.rovers[craftName])
-    const [debug_fetchCount, setDebug_fetchCount] = useState(0)
+    const [craft] = useState(props.rovers[craftName])
 
     const handleFetch = async (date) => {
         const key = process.env.REACT_APP_API_KEY
@@ -36,7 +35,7 @@ function Images(props)
         return (
             <div key={ image.id }>
                 <Link to={ `/mars-images/${ image.id }`}>
-                    <img className='image' src={ image.img_src } />
+                    <img className='image' src={ image.img_src } alt='mars-image'/>
                 </Link>
                 <p className='camera-name'>{ image.camera.full_name }</p>
             </div>
@@ -98,8 +97,6 @@ function Images(props)
             date = new Date(craft.missionEnd)
         }
 
-        const dateString = date.toISOString().substring(0, 10)
-
         if (TEST)
         {
             props.setEarthDate(new Date('Sun Jan 01 0000'))
@@ -108,7 +105,7 @@ function Images(props)
         else
             retreiveRecentImages(date, 0)
 
-    }, [])
+    }, [craft.active, craft.missionEnd, craftName, props, retreiveRecentImages])
 
     if (props.images.length === 0)
         return <p>Loading images ...</p>
